@@ -6,6 +6,7 @@ import FacilityTour from './components/FacilityTour.vue'
 import Programs from './components/Programs.vue'
 import PricingSection from './components/PricingSection.vue'
 import ChatWidget from './components/ChatWidget.vue'
+import MainFooter from './components/MainFooter.vue'
 
 </script>
 
@@ -18,6 +19,7 @@ import ChatWidget from './components/ChatWidget.vue'
   <Programs />
   <PricingSection />
   </main>
+  <MainFooter />
   <ChatWidget />
   </div>
 </template>

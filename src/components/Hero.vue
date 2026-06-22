@@ -2,9 +2,10 @@
 //Pinia State Management 
 import { useGymStore } from '../stores/gymStore'
 import { ref } from 'vue'
+import { useFitnessModal } from '../composables/useFitnessModal'
 import FitnessModal from './FitnessModal.vue'
 
-const isModalOpen = ref(false)
+const { isOpen, openModal, closeModal } = useFitnessModal()
 
 const gymStore = useGymStore()
 
@@ -46,7 +47,7 @@ const gymStore = useGymStore()
             Get Started
           </a>
          <button 
-        @click="isModalOpen = true"
+        @click="openModal(1)"
         class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 uppercase tracking-widest transition duration-300 transform hover:scale-105"
       >
         Our 4-Day Fitness Program
@@ -64,7 +65,7 @@ const gymStore = useGymStore()
       </a>
     </div>
   </section>
-  <FitnessModal :isOpen="isModalOpen" @close="isModalOpen = false" />
+  <FitnessModal :isOpen="isOpen" @close="closeModal" />
 </template>
 
 <style scoped>
