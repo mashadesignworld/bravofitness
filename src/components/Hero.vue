@@ -1,7 +1,6 @@
 <script setup lang="ts">
 //Pinia State Management 
 import { useGymStore } from '../stores/gymStore'
-import { ref } from 'vue'
 import { useFitnessModal } from '../composables/useFitnessModal'
 import FitnessModal from './FitnessModal.vue'
 

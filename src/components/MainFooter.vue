@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useGymStore } from '../stores/gymStore'
 
-const gymStore = useGymStore()
+
+
 const emailInput = ref('')
 const newsletterStatus = ref('')
 const isSubmitting = ref(false)
