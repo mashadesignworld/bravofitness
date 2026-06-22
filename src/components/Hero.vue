@@ -1,5 +1,13 @@
 <script setup lang="ts">
-// Ready for your custom setup
+//Pinia State Management 
+import { useGymStore } from '../stores/gymStore'
+import { ref } from 'vue'
+import FitnessModal from './FitnessModal.vue'
+
+const isModalOpen = ref(false)
+
+const gymStore = useGymStore()
+
 </script>
 
 <template>
@@ -18,31 +26,31 @@
       <div class="space-y-6 max-w-3xl mx-auto">
         
         <p class="text-orange-500 font-black tracking-widest text-xs uppercase sm:text-sm">
-          Welcome to Bravo Gym
+          Welcome to {{gymStore.gymName}}
         </p>
         
         <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-tight">
-          BUILD YOUR <br class="hidden sm:inline" />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">ULTIMATE</span> SELF
+          {{gymStore.heroFirstLine}} <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">{{gymStore.heroHighlight}}</span> {{gymStore.heroLastLine}}
         </h1>
         
         <p class="text-zinc-300 text-sm sm:text-base md:text-lg font-light tracking-wide max-w-2xl mx-auto leading-relaxed">
-          Experience elite personal coaching, dynamic athletic programs, and an uncompromising atmosphere engineered to elevate your lifestyle.
+          {{gymStore.heroDescription}}
         </p>
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
           <a 
-            href="#membership" 
+             :href="gymStore.whatsappLink"
             class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-black font-black uppercase tracking-widest text-xs px-10 py-4 transition-all duration-300 shadow-xl shadow-orange-500/10"
           >
             Get Started
           </a>
-          <a 
-            href="#about" 
-            class="w-full sm:w-auto border border-white/30 hover:border-white text-white font-bold uppercase tracking-widest text-xs px-10 py-4 backdrop-blur-sm bg-white/5 transition-all duration-300"
-          >
-            Our Story
-          </a>
+         <button 
+        @click="isModalOpen = true"
+        class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 uppercase tracking-widest transition duration-300 transform hover:scale-105"
+      >
+        Our 4-Day Fitness Program
+      </button>
         </div>
 
       </div>
@@ -56,6 +64,7 @@
       </a>
     </div>
   </section>
+  <FitnessModal :isOpen="isModalOpen" @close="isModalOpen = false" />
 </template>
 
 <style scoped>

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import bravoimg from '../assets/bravo.png'
+import { useGymStore } from '../stores/gymStore'
+
+const gymStore = useGymStore()
 
 const isMobileMenuOpen = ref(false)
 
@@ -37,7 +40,7 @@ const navLinks = [
 
         <div class="hidden md:block">
           <a 
-            href="#membership" 
+            :href="gymStore.whatsappLink" 
             class="border-2 border-white hover:border-orange-500 hover:bg-orange-500 hover:text-black text-white font-black uppercase tracking-widest text-xs px-6 py-3 transition-all duration-300"
           >
             Join Now
@@ -70,7 +73,7 @@ const navLinks = [
         </a>
         <div class="pt-4">
           <a 
-            href="#membership" 
+            :href="gymStore.whatsappLink" 
             @click="isMobileMenuOpen = false"
             class="block w-full border border-white text-white font-bold uppercase tracking-wider text-sm py-3"
           >

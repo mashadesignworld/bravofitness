@@ -4,6 +4,8 @@ import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
 import FacilityTour from './components/FacilityTour.vue'
 import Programs from './components/Programs.vue'
+import PricingSection from './components/PricingSection.vue'
+import ChatWidget from './components/ChatWidget.vue'
 
 </script>
 
@@ -14,6 +16,8 @@ import Programs from './components/Programs.vue'
   <Hero />
   <FacilityTour />
   <Programs />
+  <PricingSection />
   </main>
+  <ChatWidget />
   </div>
 </template>
