@@ -1,6 +1,7 @@
 <script setup lang="ts">
 //Pinia State Management 
 import { useGymStore } from '../stores/gymStore'
+// @ts-expect-error
 import { useFitnessModal } from '../composables/useFitnessModal'
 import FitnessModal from './FitnessModal.vue'
 
